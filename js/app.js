@@ -7,13 +7,13 @@ let btnIniciar = document.getElementById("btnIniciar");
 let btnDetener = document.getElementById("btnDetener");
 let btnReset = document.getElementById("btnReset");
 let btnRecuperar = document.getElementById(`btnRecuperar`);
-let intervalo;
+let setearIntervalo;
 let segundos = 0
 let minutos = 0
 let horas = 0 
 
 function iniciarCronometro() {
-  intervalo = setInterval(function () {
+  setearIntervalo = setInterval(function () {
     segundos++;
     if (segundos === 60) {
       segundos = 0;
@@ -33,15 +33,15 @@ function iniciarCronometro() {
 //funcion puesta para que no se pueda concatenar mas iniciares
 function recuperar(){
     btnIniciar.disabled = false;
-    resetCronometro();
+    
 }
 
 function detenerCronometro() {
-  clearInterval(intervalo);
+  clearInterval(setearIntervalo);
 }
 
 function resetCronometro() {
-  clearInterval(intervalo);
+  clearInterval(setearIntervalo);
   segundos = 0;
   minutos = 0;
   horas = 0;
@@ -50,11 +50,11 @@ function resetCronometro() {
   )}:${agregarCeros(segundos)}`;
 }
 
-function agregarCeros(numero) {
-  if (numero < 10) {
-    return `0${numero}`;
+function agregarCeros(num) {
+  if (num < 10) {
+    return `0${num}`;
   }
-  return numero;
+  return num;
 }
 
 //onclick
